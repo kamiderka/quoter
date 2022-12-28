@@ -1,5 +1,12 @@
 from django.db import models
-from src.authors.models import Author
+
+class Author(models.Model):
+    name    = models.CharField(max_length=50)
+    is_fav  = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        """Returns Author's name."""
+        return self.name
 
 class Quote(models.Model):
     title       = models.CharField(null=True, blank=True,  max_length=150)
