@@ -1,12 +1,5 @@
 from django.db import models
-
-class Author(models.Model):
-    name    = models.CharField(max_length=40)
-    is_fav  = models.BooleanField(default=False)
-
-    def __str__(self) -> str:
-        """Returns Author's name."""
-        return self.name
+from authors.models import Author
 
 class Source(models.Model):
     source  = models.CharField(max_length=80)
@@ -21,7 +14,7 @@ class Quote(models.Model):
     author      = models.ForeignKey(Author, on_delete=models.CASCADE)
     source      = models.ForeignKey(Source, on_delete=models.CASCADE, null=True, blank=True)
     is_fav      = models.BooleanField(default=False)
-    pub_date    = models.DateField('date published')
+    pub_date    = models.DateField('date published', auto_now_add=True)
 
 
     def __str__(self) -> str:
@@ -32,3 +25,11 @@ class Quote(models.Model):
 
         return self.title + " | by " + str(self.author)
 
+    
+    def is_valid(self):
+        pass
+
+    def save(self):
+        pass
+    
+    

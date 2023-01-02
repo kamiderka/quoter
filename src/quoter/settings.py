@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     #Own apps 
     'quotes.apps.QuotesConfig',
+    'authors.apps.AuthorsConfig',
 ]
 
 MIDDLEWARE = [

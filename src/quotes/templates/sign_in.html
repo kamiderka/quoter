@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% csrf_token %}
+    {{form.password}}
+
+{% endblock  %}
+    

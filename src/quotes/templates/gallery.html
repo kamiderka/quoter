@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if all_quotes_list %}
+        <ul>
+        {% for quote in all_quotes_list %}
+            <li>{{ quote.content }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no quotes in your gallery :(</p>
+    {% endif %}
+
+{%endblock%}
