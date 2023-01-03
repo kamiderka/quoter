@@ -15,3 +15,4 @@ class GalleryView(generic.ListView):
     def get_queryset(self):
         """Return the last five published questions."""
         return Quote.objects.all()
+

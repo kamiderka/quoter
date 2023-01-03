@@ -10,7 +10,7 @@
     <span></span>
   
     <!-- logo -->
-    <a href="#" class="menu-logo">
+    <a href="{% url 'homepage' %}" class="menu-logo">
       <img src="https://wweb.dev/resources/navigation-generator/logo-placeholder.png" alt="My Awesome Website"/>
     </a>
   
@@ -18,12 +18,12 @@
     <div class="menu">
       <ul>
         <li>
-          <a href="/">
+          <a href="{% url 'homepage' %}">
             Home
           </a>
         </li>
         <li>
-          <a href="/quotes">
+          <a href="{% url 'quotes:gallery' %}">
             Quotes
           </a>
         </li>
@@ -45,12 +45,12 @@
       </ul>
       <ul>
         <li>
-          <a href="/register">
-            Sign-up
+          <a href="{% url 'register' %}">
+            Register
           </a>
         </li>
         <li>
-          <a href="/login">
+          <a href="{% url 'login' %}">
             Login
           </a>
         </li>

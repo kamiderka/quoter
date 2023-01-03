@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from quotes.views import home_view
-from accounts.views import RegisterView
+from accounts.views import RegisterView, LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name="home"),
+    path('', home_view, name="homepage"),
     path('quotes/', include('quotes.urls')),
     path('account/', include('accounts.urls')),
     path('register', RegisterView.as_view(), name="register"),
-    path('login', home_view, name="login"),
+    path('login', LoginView.as_view(), name="login"),
     
     ]
