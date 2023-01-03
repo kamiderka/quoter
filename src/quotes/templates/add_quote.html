@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1> Add new quote </h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        
+        <div class="rendered-form">
+            <div class="formbuilder-text form-group field-quote-content">
+                <label for="quote-content" class="formbuilder-text-label">Title<span class="tooltip-element" tooltip="optional"></span></label>
+                <input type="text" placeholder="Title" class="form-control" name="quote-content" access="false" id="quote-content" title="optional">
+            </div>
+            <div class="formbuilder-textarea form-group field-quote-content">
+                <label for="quote-content" class="formbuilder-textarea-label">Content<span class="formbuilder-required">*</span></label>
+                <textarea type="textarea" placeholder="Content" class="form-control" name="quote-content" access="false" id="quote-content" required="required" aria-required="true"></textarea>
+            </div>
+            <div class="formbuilder-autocomplete form-group field-quote-source">
+                <label for="quote-source" class="formbuilder-autocomplete-label">Source<span class="tooltip-element" tooltip="optional"></span></label>
+                <input placeholder="Source" class="form-control" access="false" require-valid-option="false" id="quote-source-input" title="optional" autocomplete="off">
+                <input placeholder="Source" class="form-control" name="quote-source" access="false" require-valid-option="false" id="quote-source" title="optional" type="hidden">
+            </div>
+            <div class="formbuilder-autocomplete form-group field-author">
+                <label for="author" class="formbuilder-autocomplete-label">Author<span class="formbuilder-required">*</span></label>
+                <input placeholder="Author" class="form-control" access="false" require-valid-option="false" id="author-input" required="required" aria-required="true" autocomplete="off">
+                <input placeholder="Author" class="form-control" name="author" access="false" require-valid-option="false" id="author" required="required" aria-required="true" type="hidden">
+                
+                </ul>
+            </div>
+
+        </div>
+    </fieldset>
+    <input type="submit" value="Submit">
+    </form>
+    
+
+
+{%endblock%}
+

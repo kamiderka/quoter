@@ -1,0 +1,59 @@
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'quotes/navbar_style.css' %}">   
+
+<nav class="menu-container">
+    <!-- burger menu -->
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+  
+    <!-- logo -->
+    <a href="{% url 'homepage' %}" class="menu-logo">
+      <img src="https://wweb.dev/resources/navigation-generator/logo-placeholder.png" alt="My Awesome Website"/>
+    </a>
+  
+    <!-- menu items -->
+    <div class="menu">
+      <ul>
+        <li>
+          <a href="{% url 'homepage' %}">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'quotes:gallery' %}">
+            Quotes
+          </a>
+        </li>
+        <li>
+          <a href="/authors">
+            Authors
+          </a>
+        </li>
+        <li>
+          <a href="/api">
+            API
+          </a>
+        </li>
+        <li>
+          <a href="/contact">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="{% url 'register' %}">
+            Register
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'login' %}">
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
