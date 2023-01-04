@@ -1,3 +1,8 @@
+<p align="center"> 
+  <img width="50%" src="https://i.imgur.com/ueI2pEG.png">
+</p>
+
+
 # About project: 📜
 Quoter is a web application that allows users to save and browse quotes that they have heard or read. Using Quoter, you can easily save quotes that inspire or move you, and share them with other users. It was created in response to the lack of applications that help users create and manage a library of quotes added by themselves. The application provides access to a RESTful API and stores data in a SQLite relational database.
 
@@ -111,3 +116,17 @@ To use Quoter, you will need a computer with Internet access and a web browser (
                         </tr>
                         </tbody>
 </table>
+
+# Screenshots: 🖼️
+## Homepage
+(TO-DO)
+
+## Register
+![image](https://user-images.githubusercontent.com/65948245/210547737-acef1294-3802-4c63-9c52-3c1e9b381b34.png)
+
+
+## Add Quote
+![image](https://user-images.githubusercontent.com/65948245/210547583-caf1db2d-712b-406d-9f06-a8115d6c018c.png)
+
+## Quote Gallery:
+![image](https://user-images.githubusercontent.com/65948245/210550416-a2ab6b67-7feb-4f6e-a213-d78e076c5fdd.png)
