@@ -4,7 +4,7 @@
 
 
 # About project: 📜
-Quoter is a web application that allows users to save and browse quotes that they have heard or read. Using Quoter, you can easily save quotes that inspire or move you, and share them with other users. It was created in response to the lack of applications that help users create and manage a library of quotes added by themselves. The application provides access to a RESTful API and stores data in a SQLite relational database.
+Quoter is a web application that allows users to save and browse quotes that inspire or move you. It was created in response to the lack of applications that help users create and manage a library of quotes added by themselves. The application provides access to a RESTful API and stores data in a SQLite relational database.
 
 The templates used in Quoter belong to [Material Design for Bootstrap](https://mdbootstrap.com/freebies/).
 
