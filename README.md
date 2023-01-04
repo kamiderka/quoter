@@ -75,7 +75,10 @@ To use Quoter, you will need a computer with Internet access and a web browser (
                           <td> </td>
                           <td>• Bugfixes </td>
                         </tr>
-    
+        <tr>
+                          <td> </td>
+                          <td>• requirements.txt </td>
+                        </tr>
    </tbody>
    </table>
 
