@@ -1,8 +1,9 @@
 from django.db import models
 from authors.models import Author
+from uuid import uuid4
 
 class Quote(models.Model):
-    title       = models.CharField(null=True, blank=True,  max_length=150)
+    title       = models.CharField(blank=True,  max_length=150)
     content     = models.TextField()
     author      = models.ForeignKey(Author, on_delete=models.CASCADE)
     is_fav      = models.BooleanField(default=False)
@@ -17,11 +18,6 @@ class Quote(models.Model):
 
         return self.title + " | by " + str(self.author)
 
-    
-    def is_valid(self):
-        pass
 
-    def save(self):
-        pass
     
     

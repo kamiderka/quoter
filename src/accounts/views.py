@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy
 
 from .forms import RegisterUserForm
@@ -11,10 +11,9 @@ from .forms import RegisterUserForm
 class RegisterView(FormView):
     template_name = 'register.html'
     form_class = RegisterUserForm
-    success_url = '/login'
+    success_url = reverse_lazy('login')
 
     def form_valid(self, form):
-        print('All Correct')
         form.save()
         return super().form_valid(form)
  
@@ -32,4 +31,8 @@ class LoginView(FormView):
             return redirect(self.success_url)
         else:
             return self.form_invalid(form)
-   
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')

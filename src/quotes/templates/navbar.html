@@ -44,6 +44,7 @@
         </li>
       </ul>
       <ul>
+        
         <li>
           <a href="{% url 'register' %}">
             Register
@@ -52,6 +53,20 @@
         <li>
           <a href="{% url 'login' %}">
             Login
+          </a>
+        </li>
+        <li>
+          
+          {% if request.user %}
+            {{request.user}} 
+          {% endif %}
+            
+
+           
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">
+            Log out
           </a>
         </li>
       </ul>
