@@ -23,7 +23,7 @@ The templates used in Quoter belong to [Material Design for Bootstrap](https://m
 To use Quoter, you will need a computer with Internet access and a web browser (the latest version of Chrome is recommended).
 
 ## Installation
-1. Clone the repository using the command git clone https://github.com/kamiderka/quoter.git.
+1. Clone the repository using the command 'git clone https://github.com/kamiderka/quoter.git'.
 2. Navigate to the project directory using the command `cd quoter`.
 3. Install the required packages using the command `pip install -r requirements.txt`.
 4. Run the local server using the command `python manage.py runserver`.
