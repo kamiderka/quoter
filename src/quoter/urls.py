@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from quotes.views import home_view
 from accounts.views import RegisterView, LoginView, logoutUser
+from django.shortcuts import render
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', home_view, name="homepage"),
-    path('quotes/', include('quotes.urls')),
-    path('account/', include('accounts.urls')),
+    path('quotes/', include('quotes.urls'), name="quotes"),
+    path('authors/', include('authors.urls'), name="authors"),
+
     path('register', RegisterView.as_view(), name="register"),
     path('login', LoginView.as_view(), name="login"),
     path('logout', logoutUser, name="logout"),

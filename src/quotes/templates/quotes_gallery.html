@@ -1,0 +1,32 @@
+{% extends 'gallery.html' %}
+
+{% block color %}
+"background-color: #fff9f2"
+{% endblock  %}
+
+{% block fav_field %}
+
+<label for="is_fav">Is_fav: </label>
+<input type="checkbox" name="is_fav" id="is_fav">
+
+{%endblock%}
+
+{% block top_field %}
+    {{object.author}}
+
+{%endblock%}
+
+{% block header_field %}
+    {{object.source}}
+
+{%endblock%}
+
+{% block content_field %}
+    {{object.content}}
+
+{%endblock%}
+
+{% block if_empty_message %}
+    You have no quotes in your gallery :(
+{% endblock  %}
+

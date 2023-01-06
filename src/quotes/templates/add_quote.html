@@ -2,40 +2,143 @@
 
 {% block content %}
 
-<form action="/" method="post">
-    {% csrf_token %}
-    <fieldset>
-        <legend><h1> Add new quote </h1></legend>
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-        
-        <div class="rendered-form">
-            <div class="formbuilder-text form-group field-quote-content">
-                <label for="quote-content" class="formbuilder-text-label">Title<span class="tooltip-element" tooltip="optional"></span></label>
-                <input type="text" placeholder="Title" class="form-control" name="quote-content" access="false" id="quote-content" title="optional">
-            </div>
-            <div class="formbuilder-textarea form-group field-quote-content">
-                <label for="quote-content" class="formbuilder-textarea-label">Content<span class="formbuilder-required">*</span></label>
-                <textarea type="textarea" placeholder="Content" class="form-control" name="quote-content" access="false" id="quote-content" required="required" aria-required="true"></textarea>
-            </div>
-            <div class="formbuilder-autocomplete form-group field-quote-source">
-                <label for="quote-source" class="formbuilder-autocomplete-label">Source<span class="tooltip-element" tooltip="optional"></span></label>
-                <input placeholder="Source" class="form-control" access="false" require-valid-option="false" id="quote-source-input" title="optional" autocomplete="off">
-                <input placeholder="Source" class="form-control" name="quote-source" access="false" require-valid-option="false" id="quote-source" title="optional" type="hidden">
-            </div>
-            <div class="formbuilder-autocomplete form-group field-author">
-                <label for="author" class="formbuilder-autocomplete-label">Author<span class="formbuilder-required">*</span></label>
-                <input placeholder="Author" class="form-control" access="false" require-valid-option="false" id="author-input" required="required" aria-required="true" autocomplete="off">
-                <input placeholder="Author" class="form-control" name="author" access="false" require-valid-option="false" id="author" required="required" aria-required="true" type="hidden">
-                
-                </ul>
-            </div>
-
-        </div>
-    </fieldset>
-    <input type="submit" value="Submit">
-    </form>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 5;
+      margin: 3;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      margin: 15px 0;
+      font-weight: 400;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
     
+      width: 50%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #ccc; 
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      display: center;
+      }
+      input {
+      width: calc(20% - 10px);
+      padding: 10px;
+      margin: 10px;
+      }
+      .is_fav {
+        width: calc(220% - 10px);
+        padding: 5px;
+        }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+        display: flex;
+      width: calc(50% - 10px);
+      margin: 10px;
+ }
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+      position: center;
+      margin: 15px 0;
+      }
+      .item:hover p, .item:hover i {
+      color: #095484;
+      }
+      input:hover, select:hover, textarea:hover {
+      box-shadow: 0 0 5px 0 #095484;
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px; 
+      -moz-border-radius: 5px; 
+      border-radius: 5px; 
+      background-color: #095484;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #0666a3;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .city-item input {
+      width: calc(50% - 20px);
+      }
+      .city-item select {
+      width: calc(50% - 8px);
+      }
+      }
+    </style>
 
+    <div class="testbox">
+      <form action="" method="POST">
+{% csrf_token %}
+        <h1 class="item">Here you can add your Quote: </h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}        
+
+        <div class="item">
+          <p>Content</p>
+          {{form.content}}
+        </div>
+
+        <div class="item">
+          <p>Author</p>
+          {{form.author}}
+        </div>
+
+        <div class="item">
+          <p>Source</p>
+          {{form.source}}
+        </div>
+
+        <div class="item">
+            <label for="is_fav">Favourite: </label>
+            {{form.is_fav}}
+          </div>
+
+        <div class="btn-block">
+          <button type="submit">SEND</button>
+        </div>
+      </form>
+    </div>
 
 {%endblock%}
 

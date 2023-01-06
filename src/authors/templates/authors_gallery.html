@@ -1,0 +1,35 @@
+{% extends 'gallery.html' %}
+
+
+{% block color %}
+"background-color: #F0F8FF"
+{% endblock  %}
+
+
+{% block fav_field %}
+
+<label for="is_fav">Is_fav: </label>
+<input type="checkbox" name="is_fav" id="is_fav">
+
+{%endblock%}
+
+{% block top_field %}
+
+{%endblock%}
+
+{% block header_field %}
+    {{object.name}}
+
+{%endblock%}
+
+{% block content_field %}
+    {{object.is_fav}}
+
+{%endblock%}
+
+{% block if_empty_message %}
+    You don't have any author in your collection :(
+{% endblock  %}
+
+
+

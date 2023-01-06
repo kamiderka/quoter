@@ -8,11 +8,11 @@
 
 </head>
 
-    {% if all_quotes_list %}
+    {% if all_objects_list %}
 
         {% load quotes_tags %}
 
-        {% for quote in all_quotes_list %}
+        {% for object in all_objects_list %}
         
 
         {% if forloop.counter|modulo:3 == 1 %}
@@ -20,17 +20,21 @@
             <div class="row equal-cols">
         {% endif %}
                 <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-                    <div>
-                    <div class="rounded-5 shadow-3-soft p-4" style="background-color: #fff9f2">
+                    <div> 
+                    <div class="rounded-5 shadow-3-soft p-4" style= {% block color %}{% endblock  %}>
+                        {% block fav_field %} {% endblock %}
                         <div class="border-top border-dark mx-auto" style="width: 100px"></div>
-                        <p class="text-muted mt-4 mb-2">{{quote.author}} 
+                        <p class="text-muted mt-4 mb-2"> {% block top_field %}{% endblock  %}
+                            
                             
                            
                                 
                         </p>
-                        <p class="h5 mb-4" style="color: #344e41">{{quote.title}}</p>
+                        <p class="h5 mb-4" style="color: #344e41">{% block header_field %}{% endblock  %}
+                        </p>
                         <p class="pb-4 mb-4">
-                        {{quote.content}}
+                            {% block content_field %}{% endblock  %}
+                        </p>
                         </p>
                     </div>
                     </div> <br> 
@@ -49,7 +53,9 @@
         {% endfor %}
         
     {% else %}
-        <p>You have no quotes in your gallery :(</p>
+        {% block if_empty_message %}{% endblock  %}
+            
     {% endif %}
+
 
 {%endblock%}
