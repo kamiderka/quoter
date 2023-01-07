@@ -45,7 +45,7 @@ To use Quoter, you will need a computer with Internet access and a web browser (
                         </tr>
                         <tr>
                           <td>• User registration </td>
-                          <td>• Search Quotes and Authors </td>
+                          <td> • requirements.txt </td>
                         </tr>
     <tr>
                           <td>• User Authentication </td>
@@ -56,28 +56,28 @@ To use Quoter, you will need a computer with Internet access and a web browser (
                           <td>• RESTful API </td>
                         </tr>
     <tr>
-                          <td> </td>
-                          <td>• Author Gallery and Stats  </td>
+                          <td> • Add Quote functionality </td>
+                          <td> • Bugfixes  </td>
                         </tr>
     <tr>
-                          <td> </td>
+                          <td>• Author Gallery and Stats </td>
                           <td>• Favourite Quote functionalities  </td>
                         </tr>
     <tr>
-                          <td>  </td>
-                          <td>• Contact page </td>
+                          <td> • Search Quotes and Authors  </td>
+                          <td></td>
                         </tr>
     <tr>
                           <td> </td>
-                          <td>• Add Quote functionality </td>
+                          <td> </td>
                         </tr>
     <tr>
                           <td> </td>
-                          <td>• Bugfixes </td>
+                          <td> </td>
                         </tr>
         <tr>
                           <td> </td>
-                          <td>• requirements.txt </td>
+                          <td> </td>
                         </tr>
    </tbody>
    </table>
