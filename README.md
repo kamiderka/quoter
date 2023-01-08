@@ -24,7 +24,7 @@ To use Quoter, you will need a computer with Internet access and a web browser (
 
 ## Installation
 1. Clone the repository using the command `git clone https://github.com/kamiderka/quoter.git`.
-2. Navigate to the project directory using the command `cd quoter`.
+2. Navigate to the project directory using the command `cd src`.
 3. Install the required packages using the command `pip install -r requirements.txt`.
 4. Run the local server using the command `python manage.py runserver`.
 5. Open your web browser and go to the address http://127.0.0.1:8000/ to use Quoter
