@@ -27,13 +27,14 @@
       align-items: center;
       height: inherit;
       padding: 3px;
+      
       }
       form {
-    
       width: 50%;
       padding: 20px;
       background: #fff;
       box-shadow: 0 2px 5px #ccc; 
+      margin-side: ;
       }
       input, select, textarea {
       margin-bottom: 10px;
@@ -108,9 +109,9 @@
       }
     </style>
 
-    <div class="testbox">
-      <form action="" method="POST">
-{% csrf_token %}
+    <div class="testbox" style="width: 100%; padding: 20px;">
+      <form action="" method="POST"  >
+        {% csrf_token %}
         <h1 class="item">Here you can add your Quote: </h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}        
 
@@ -124,7 +125,7 @@
           {{form.author}}
         </div>
 
-        <div class="item">
+        <div class="item" style="width: 100%;">
           <p>Source</p>
           {{form.source}}
         </div>
@@ -135,7 +136,7 @@
           </div>
 
         <div class="btn-block">
-          <button type="submit">SEND</button>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>

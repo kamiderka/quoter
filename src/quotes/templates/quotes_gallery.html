@@ -1,32 +1,73 @@
-{% extends 'gallery.html' %}
+{% extends 'base.html' %}
 
-{% block color %}
-"background-color: #fff9f2"
+
+{% block search_bar %}
+
+<style>
+  form {
+    display: flex;
+    justify-content: center;
+
+    input.form-control {
+      width: 300px; 
+    }
+    
+  }
+</style>
+
+<form method="GET" action="{% url 'quotes:search' %}" class="form-inline" >
+  <input class="form-control w-50" name="q" type="search"  placeholder="Search Quote" aria-label="Search">
+  <button class="btn btn-outline-success " type="submit">Search </button>
+</form>
+
+
 {% endblock  %}
+  
 
-{% block fav_field %}
 
-<label for="is_fav">Is_fav: </label>
-<input type="checkbox" name="is_fav" id="is_fav">
+{% block content %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-{%endblock%}
+<style>
+  i.fa-heart {
+    font-size: 24px;
+  }
+</style>
 
-{% block top_field %}
-    {{object.author}}
+<div class="card-columns">
+    
+    {% for quote in quote_list %}
+        
+    
+    <div class="card text-white" style="background-color: #1f959b; border-radius: 15px;">
+        <div class="card-body p-5">
 
-{%endblock%}
+          <i class="fas fa-quote-left fa-2x mb-4"></i>
 
-{% block header_field %}
-    {{object.source}}
+          <p class="lead">{{quote.content}}</p>
 
-{%endblock%}
+          <hr>
 
-{% block content_field %}
-    {{object.content}}
+          <div class="d-flex justify-content-between">
+            <p class="mb-0">{{quote.author}}</p>
+            <h6 class="mb-0"><span class="badge rounded-pill"
+                style="background-color: rgba(0,0,0, 0.2);">   
+                {% if quote.is_fav %}
+                <i class="fas fa-heart ms-2"></i>
 
-{%endblock%}
+                {% else %}
+                <i class="far fa-heart"></i>
 
-{% block if_empty_message %}
-    You have no quotes in your gallery :(
+                {% endif %}
+              </span> 
+            </h6>
+          </div>
+
+        </div>
+      </div>
+
+      {% endfor %}
+      
+
+</div>
 {% endblock  %}
-

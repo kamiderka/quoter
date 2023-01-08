@@ -15,17 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from quotes.views import home_view
+from quotes.views import HomePageView
 from accounts.views import RegisterView, LoginView, logoutUser
+
 from django.shortcuts import render
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', home_view, name="homepage"),
+    path('', HomePageView.as_view(), name="homepage"),
     path('quotes/', include('quotes.urls'), name="quotes"),
     path('authors/', include('authors.urls'), name="authors"),
+    path('api/', lambda request: render(request, 'coming_soon.html'), name="api"),
+    
 
     path('register', RegisterView.as_view(), name="register"),
     path('login', LoginView.as_view(), name="login"),

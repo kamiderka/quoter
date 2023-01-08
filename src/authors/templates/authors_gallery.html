@@ -1,35 +1,98 @@
-{% extends 'gallery.html' %}
+{% extends 'base.html' %}
+
+{% block search_bar %}
+
+<style>
+  form {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<form method="GET" action="{% url 'authors:search' %}" class="form-inline">
+  <input class="form-control" type="search" name="author" placeholder="Search Author" aria-label="Search">
+  <button class="btn btn-outline-success " type="submit">Search </button>
+</form>
 
 
-{% block color %}
-"background-color: #F0F8FF"
 {% endblock  %}
 
+{% block content %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-{% block fav_field %}
+<style>
+    .card-deck{
+        padding: 10px;
+    }
+    
+</style>
 
-<label for="is_fav">Is_fav: </label>
-<input type="checkbox" name="is_fav" id="is_fav">
+<script>
+    // Pobieramy elementy listy
+    var items = document.getElementsByClassName("list-group");
+    
+    // Dla każdego elementu listy
+    for (var i = 0; i < items.length; i++) {
+      // Dodajemy nasłuchiwanie zdarzenia click
+      items[i].addEventListener("click", function() {
+        // Pobieramy podlistę
+        var sublist = this.getElementsByClassName("sublist")[0];
+        // Jeśli podlista jest widoczna
+        if (sublist.style.display === "block") {
+          // Ukrywamy podlistę
+          sublist.style.display = "none";
+        } else {
+          // W przeciwnym razie pokazujemy podlistę
+          sublist.style.display = "block";
+        }
+      });
+    }
+  </script>
 
-{%endblock%}
+{% load authors_tags %}
 
-{% block top_field %}
+<br>
+<div class="card-columns ">
+{% for author in all_authors_list %}
 
-{%endblock%}
 
-{% block header_field %}
-    {{object.name}}
+    <div class="card card-outline-none ">
+    
+        
+    <ul class="list-group sublist ">
+        <li class="list-group-item active">{{author.name}}</li>
+        <li class="list-group-item">Quotes: {% count_quotes author  %} 
+           <a href="{% url 'quotes:of_author' author.slug %}" title="View details">[view]</a>
+        </li>
 
-{%endblock%}
+        {% if author.source_set.count > 0 %}
+        <li class="list-group-item">Fav_Quotes: {% count_favourite_quotes author  %}
+          <a href="{% url 'quotes:favs_of_author' author.slug %}" title="View details">[view]</a>
+        </li>
+        {% endif %}
+        {% if author.source_set.count > 0 %}
+        <li class="list-group-item">
+            Works: <br> 
+        <ul class="list-group ">
+            
+            
+            {% for work in author.source_set.all  %}
+            <li class="list-group-item">{{work.name}}</li>
+            
+            {% endfor %}
+            
+            
+            
+        </ul>
+        </li>
+        {% endif %}
+    </ul>
+</div>
 
-{% block content_field %}
-    {{object.is_fav}}
+{% endfor %}
+</div>
 
-{%endblock%}
 
-{% block if_empty_message %}
-    You don't have any author in your collection :(
+
+
 {% endblock  %}
-
-
-
