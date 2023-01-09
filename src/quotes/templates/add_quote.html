@@ -106,6 +106,7 @@
       .city-item select {
       width: calc(50% - 8px);
       }
+
       }
     </style>
 
@@ -113,27 +114,24 @@
       <form action="" method="POST"  >
         {% csrf_token %}
         <h1 class="item">Here you can add your Quote: </h1>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}        
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}        
 
         <div class="item">
-          <p>Content</p>
-          {{form.content}}
+          <label for="content">Content</label>
+          <textarea class="form-control" name="content" rows="3" required></textarea>
         </div>
-
-        <div class="item">
-          <p>Author</p>
-          {{form.author}}
+        <div class=" item">
+          <label for="author">Author</label>
+          <input type="text" class="form-control" name="author" maxlength="40" required>
         </div>
-
-        <div class="item" style="width: 100%;">
-          <p>Source</p>
-          {{form.source}}
+        <div class=" item">
+          <label for="source">Source</label>
+          <input type="text" class="form-control" name="source" maxlength="100">
         </div>
-
-        <div class="item">
-            <label for="is_fav">Favourite: </label>
-            {{form.is_fav}}
-          </div>
+        <div class=" item">
+          <input type="checkbox" class="form-check-input" name="is_fav">
+          <label class="form-check-label" for="is_fav">Is favorite</label>
+        </div>
 
         <div class="btn-block">
           <button type="submit">Save</button>
