@@ -13,7 +13,7 @@ The templates used in Quoter belong to [Material Design for Bootstrap](https://m
 2. Add quotes to your personal library by using the "Add Quote" form.
 3. Browse quotes from other users and mark your favorites.
 4. Search for quotes by author or content using the search bar.
-5. Use the RESTful API to retrieve quote data and integrate it into your own applicati
+5. Use the RESTful API to retrieve quote data and integrate it into your own application
 
 
 ### Live app: [coming soon]
