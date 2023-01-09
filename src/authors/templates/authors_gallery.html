@@ -65,11 +65,10 @@
            <a href="{% url 'quotes:of_author' author.slug %}" title="View details">[view]</a>
         </li>
 
-        {% if author.source_set.count > 0 %}
         <li class="list-group-item">Fav_Quotes: {% count_favourite_quotes author  %}
           <a href="{% url 'quotes:favs_of_author' author.slug %}" title="View details">[view]</a>
         </li>
-        {% endif %}
+
         {% if author.source_set.count > 0 %}
         <li class="list-group-item">
             Works: <br> 
