@@ -9,20 +9,20 @@ from quotes.views import QuoteGalleryView
 from django.db.models import Count
 
 
-class AuthorsGalleryView( ListView):
-    # login_url = reverse_lazy('login')
+class AuthorsGalleryView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     template_name = 'authors_gallery.html'
     context_object_name = 'all_authors_list'
 
     def get_queryset(self):
         """Returns authors QuerySet<>."""
         
-        return Author.objects.exclude(quote=None).order_by('name')  
+        return Author.objects.exclude(quote=None).filter(created_by=self.request.user).order_by('name')  
 
 class SearchAuthorResultsView(AuthorsGalleryView):
     def get_queryset(self):
         query = self.request.GET.get('author')  
-        return Author.objects.exclude(quote=None).filter(name__contains=query)
+        return Author.objects.exclude(quote=None).filter(name__contains=query, created_by=self.request.user)
     
 
 

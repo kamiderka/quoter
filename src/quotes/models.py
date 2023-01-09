@@ -15,6 +15,8 @@ class Source(models.Model):
     author  = models.ForeignKey(Author, on_delete=models.CASCADE)    
     slug    = models.SlugField(blank=True, null=True)
 
+    created_by   = models.ForeignKey(User, on_delete=models.CASCADE)
+
     
     def save(self, *args, **kwargs) -> None:
         self.slug = slugify(self.name)
@@ -31,6 +33,7 @@ class Quote(models.Model):
     is_fav      = models.BooleanField(default=False)
 
     pub_date    = models.DateField('date published', auto_now_add=True)
+    created_by   = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self) -> str:

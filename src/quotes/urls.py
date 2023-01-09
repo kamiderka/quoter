@@ -4,7 +4,7 @@ from .views import *
 app_name = 'quotes'
 urlpatterns = [
     path('', QuoteGalleryView.as_view(), name='gallery'), #
-    path('add', QuoteCreationView.as_view(), name='add'),
+    path('add', add_quote, name='add'),
     path('favourite', FavouriteQuotesGalleryView.as_view(), name='favs'),
 
     path('<slug:slug>', QuotesOfAuthorGalleryView.as_view(), name='of_author'),
