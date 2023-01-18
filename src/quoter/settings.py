@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'quotes.apps.QuotesConfig',
     'authors.apps.AuthorsConfig',
     'accounts.apps.AccountsConfig', 
+
+    #Third party apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

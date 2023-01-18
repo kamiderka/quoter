@@ -17,9 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from quotes.views import HomePageView
 from accounts.views import RegisterView, LoginView, logoutUser
+from quotes.api.views import *
+from authors.api.views import *
 
 from django.shortcuts import render
+from rest_framework.routers import DefaultRouter
 
+router = DefaultRouter()
+router.register(r'quotes', QuoteViewSet, basename='quote')
+# router.register(r'authors', AuthorsViewSet, basename='author')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +33,9 @@ urlpatterns = [
     path('', HomePageView.as_view(), name="homepage"),
     path('quotes/', include('quotes.urls'), name="quotes"),
     path('authors/', include('authors.urls'), name="authors"),
-    path('api/', lambda request: render(request, 'coming_soon.html'), name="api"),
-    
+    # path('api', lambda request: render(request, 'coming_soon.html'), name="api"),
+
+    path('api/', include(router.urls), name="api"),    
 
     path('register', RegisterView.as_view(), name="register"),
     path('login', LoginView.as_view(), name="login"),
