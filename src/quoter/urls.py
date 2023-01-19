@@ -22,6 +22,7 @@ from authors.api.views import *
 
 from django.shortcuts import render
 from rest_framework.routers import DefaultRouter
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 router = DefaultRouter()
 router.register(r'quotes', QuoteViewSet, basename='quote')
@@ -40,5 +41,6 @@ urlpatterns = [
     path('register', RegisterView.as_view(), name="register"),
     path('login', LoginView.as_view(), name="login"),
     path('logout', logoutUser, name="logout"),
-    
     ]
+
+urlpatterns += staticfiles_urlpatterns()
