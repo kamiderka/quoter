@@ -8,6 +8,10 @@ else
     echo "Could not find requirements.txt file."
 fi
 
+
+
 echo "Performing migrations..."
 python manage.py migrate --run-syncdb
 echo "Migrations performed."
+
+python /etc/secrets/create_superuser.py
