@@ -17,6 +17,7 @@ The templates used in Quoter belong to [Material Design for Bootstrap](https://m
 
 
 ### Live app: https://quoter-xx2e.onrender.com
+(since I use free-tier, it may take a while to load the page)
 <br>
 
 ## Requirements
