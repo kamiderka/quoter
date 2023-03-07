@@ -49,7 +49,16 @@
           <hr>
 
           <div class="d-flex justify-content-between">
-            <p class="mb-0">{{quote.author}}</p>
+            
+            <p class="mb-0">
+              
+              {{quote.author}}
+              
+              {% if quote.source.name %}
+              <cite>in {{quote.source}} <cite>   
+              {% endif %}
+
+            </p>
             <h6 class="mb-0"><span class="badge rounded-pill"
                 style="background-color: rgba(0,0,0, 0.2);">   
                 {% if quote.is_fav %}
